@@ -1,15 +1,15 @@
 import matplotlib.pyplot as plt
 
-def quadratic_weather_model(time, humidity, pressure, wind_speed):
-    temperature = humidity * (time ** 2) + pressure * time + wind_speed
+def quadratic_weather_model(time, pressure, windSpeed, humidity):
+    temperature =   pressure * (time ** 2) +  windSpeed * time +  humidity
     return temperature
 
 def main():
-    humidity = 0.8
-    pressure = -2
-    wind_speed = 25
+    pressure = 0.8
+    windSpeed = -7
+    humidity = 40
     time_values = list(range(0, 11))
-    temperature_values = [quadratic_weather_model(t, humidity, pressure, wind_speed) for t in time_values]
+    temperature_values = [quadratic_weather_model(t, pressure, windSpeed,humidity) for t in time_values]
 
     plt.figure(figsize=(8, 6))
     plt.plot(time_values, temperature_values, marker='o', linestyle='-')
